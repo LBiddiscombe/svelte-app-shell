@@ -1,11 +1,3 @@
-:root {
-  --primary-dark: #333;
-  --primary-light: #fff;
-  --secondary-dark: #555;
-  --secondary-light: #eee;
-  --accent: #fed024;
-}
-
 html,
 body {
   position: relative;

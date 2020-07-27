@@ -1,140 +1,39 @@
 <script lang="ts">
-  import MenuToggle from './MenuToggle.svelte'
+  import Header from './Header.svelte'
+  import Aside from './Aside.svelte'
+  import Main from './Main.svelte'
 
-  export let name: string
+  let asideOpen: boolean = false
 
-  let asideOpen: boolean
-
-  function handleMenuToggle(event: any) {
-    asideOpen = event.detail.menuOpen
+  function handleHamburger(event: any) {
+    asideOpen = event.detail.open
   }
 </script>
 
 <style>
-  .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: auto 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+  .app {
+    --primary-dark: #333;
+    --primary-light: #fff;
+    --secondary-dark: #555;
+    --secondary-light: #eee;
+    --accent: #fed024;
+    --header-height: 4rem;
+    --sidebar-width: 20rem;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
   }
 
-  header {
-    position: sticky;
-    top: 0;
-    grid-column: 1 / -1;
-    background-color: var(--primary-dark);
-    color: var(--primary-light);
-    display: flex;
-    min-height: 4rem;
-    align-items: center;
-    padding: 0 1rem;
-    z-index: 2;
-  }
-
   .content {
-    grid-column: 1/-1;
-    grid-row: 2;
     display: flex;
-  }
-
-  aside {
-    width: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.2s;
-    background-color: var(--secondary-light);
-  }
-
-  .aside-content {
-    position: sticky;
-    top: 4rem;
-    padding: 1rem;
-  }
-
-  .asideOpen {
-    visibility: visible;
-    opacity: 1;
-    width: 30rem;
-  }
-
-  main {
-    padding: 1rem;
-    flex: 1;
-  }
-
-  :global(.icon) {
-    padding: 0.5rem;
-  }
-
-  .title {
-    font-size: 1.5rem;
-    vertical-align: middle;
-    margin-left: 1rem;
+    min-height: calc(100vh - var(--header-height));
   }
 </style>
 
-<div class="wrapper">
-  <header>
-    <MenuToggle on:menuToggle={handleMenuToggle} />
-    <div class="title">Header</div>
-  </header>
-
+<div class="app">
+  <Header on:hamburgerToggle={handleHamburger} />
   <div class="content">
-    <aside class:asideOpen>
-      <div class="aside-content">Aside</div>
-    </aside>
-
-    <main>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-      <p>Hello {name}</p>
-    </main>
+    <Aside open={asideOpen} />
+    <Main />
   </div>
 </div>

@@ -1,10 +1,9 @@
 <script>
   import { createEventDispatcher } from 'svelte'
-
   const dispatch = createEventDispatcher()
   let open = false
 
-  $: dispatch('menuToggle', { menuOpen: open })
+  $: dispatch('hamburgerToggle', { open })
 </script>
 
 <style>
