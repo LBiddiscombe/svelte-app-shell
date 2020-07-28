@@ -6,7 +6,7 @@
   let asideOpen: boolean = false
 
   function handleHamburger(event: any) {
-    asideOpen = event.detail.open
+    asideOpen = event.detail
   }
 </script>
 
@@ -18,7 +18,8 @@
     --secondary-light: #eee;
     --accent: #fed024;
     --header-height: 4rem;
-    --sidebar-width: 20rem;
+    --aside-width: 20rem;
+
     display: flex;
     flex-direction: column;
     min-height: 100vh;

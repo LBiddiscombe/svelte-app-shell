@@ -3,7 +3,7 @@
   const dispatch = createEventDispatcher()
   let open = false
 
-  $: dispatch('hamburgerToggle', { open })
+  $: dispatch('hamburgerToggle', open)
 </script>
 
 <style>
@@ -43,8 +43,8 @@
 </style>
 
 <div>
-  <input type="checkbox" bind:checked={open} id="openSidebarMenu" />
-  <label for="openSidebarMenu" class="nav-icon" class:open>
+  <input type="checkbox" bind:checked={open} id="navicon" />
+  <label for="navicon" class="nav-icon" class:open>
     <div />
   </label>
 </div>

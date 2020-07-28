@@ -6,13 +6,13 @@
 <style>
   aside {
     width: 0;
-    transform: translateX(calc(var(--sidebar-width) * -1));
+    transform: translateX(calc(var(--aside-width) * -1));
     transition: all 0.2s;
     background-color: var(--secondary-light);
   }
 
   .open {
-    width: var(--sidebar-width);
+    width: var(--aside-width);
     transform: translateX(0);
   }
 
