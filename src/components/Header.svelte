@@ -1,7 +1,5 @@
-<script>
-  import Hamburger from './Hamburger.svelte'
+<script lang="ts">
 
-  // your script goes here
 </script>
 
 <style>
@@ -10,15 +8,17 @@
   }
 
   header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    width: 100%;
     background-color: var(--primary-dark);
     color: var(--primary-light);
     display: flex;
     align-items: center;
     min-height: var(--header-height);
-    padding: 0 1rem;
+    padding-left: 4rem;
     z-index: 2;
+    box-shadow: rgba(0, 0, 0, 0.14) 0 4px 5px 0, rgba(0, 0, 0, 0.12) 0 1px 10px 0, rgba(0, 0, 0, 0.3) 0 2px 4px -1px;
   }
 
   .title {
@@ -29,6 +29,5 @@
 </style>
 
 <header>
-  <Hamburger on:hamburgerToggle />
   <div class="title">Header</div>
 </header>

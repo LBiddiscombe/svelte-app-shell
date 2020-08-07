@@ -1,15 +1,18 @@
-<script>
-  // your script goes here
+<script lang="ts">
+  export let offsetLeft: string = '20rem'
 </script>
 
 <style>
   main {
+    margin-left: var(--sidebar-width);
+    margin-top: var(--header-height);
     padding: 1rem;
     flex: 1;
+    transition: margin 0.2s ease-out;
   }
 </style>
 
-<main>
+<main style="margin-left: {offsetLeft}">
   <h1>But, like most politicians, he promised more than he could deliver.</h1>
   <p>
     Wow! A superpowers drug you can just rub onto your skin? You'd think it would be something you'd have to freebase.

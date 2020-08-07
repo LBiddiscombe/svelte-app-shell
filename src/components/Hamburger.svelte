@@ -1,9 +1,5 @@
-<script>
-  import { createEventDispatcher } from 'svelte'
-  const dispatch = createEventDispatcher()
-  let open = false
-
-  $: dispatch('hamburgerToggle', open)
+<script lang="ts">
+  export let checked: boolean
 </script>
 
 <style>
@@ -15,6 +11,13 @@
 
   .nav-icon {
     width: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    padding: 0.75rem 1rem 0.25rem;
+    height: 3rem;
+    background-color: var(--primary-dark);
   }
 
   .nav-icon:after,
@@ -24,27 +27,25 @@
     border-radius: 3px;
     content: '';
     display: block;
-    height: 5px;
-    margin: 7px 0;
+    height: 0.25rem;
+    margin: 0.5rem 0;
     transition: all 0.1s ease-in-out;
   }
 
-  .open.nav-icon:before {
+  .checked.nav-icon:before {
     transform: translateY(12px) rotate(45deg);
   }
 
-  .open.nav-icon:after {
+  .checked.nav-icon:after {
     transform: translateY(-12px) rotate(-45deg);
   }
 
-  .open.nav-icon div {
+  .checked.nav-icon div {
     transform: scale(0);
   }
 </style>
 
-<div>
-  <input type="checkbox" bind:checked={open} id="navicon" />
-  <label for="navicon" class="nav-icon" class:open>
-    <div />
-  </label>
-</div>
+<label class="nav-icon" class:checked>
+  <input type="checkbox" bind:checked />
+  <div />
+</label>

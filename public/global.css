@@ -1,3 +1,12 @@
+:root {
+  --primary-dark: #222e3c;
+  --primary-light: #fff;
+  --secondary-dark: #3e4854;
+  --secondary-light: #e3e5e7;
+  --accent: #fed024;
+  --header-height: 4rem;
+}
+
 html,
 body {
   position: relative;

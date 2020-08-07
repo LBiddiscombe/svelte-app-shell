@@ -1,40 +1,24 @@
 <script lang="ts">
   import Header from './Header.svelte'
+  import Hamburger from './Hamburger.svelte'
   import Aside from './Aside.svelte'
   import Main from './Main.svelte'
 
   let asideOpen: boolean = false
-
-  function handleHamburger(event: any) {
-    asideOpen = event.detail
-  }
+  let asideWidth: string
 </script>
 
 <style>
   .app {
-    --primary-dark: #333;
-    --primary-light: #fff;
-    --secondary-dark: #555;
-    --secondary-light: #eee;
-    --accent: #fed024;
-    --header-height: 4rem;
-    --aside-width: 20rem;
-
     display: flex;
     flex-direction: column;
     min-height: 100vh;
   }
-
-  .content {
-    display: flex;
-    min-height: calc(100vh - var(--header-height));
-  }
 </style>
 
-<div class="app">
-  <Header on:hamburgerToggle={handleHamburger} />
-  <div class="content">
-    <Aside open={asideOpen} />
-    <Main />
-  </div>
+<div class="app" style="--aside-width: 20rem;">
+  <Header />
+  <Hamburger bind:checked={asideOpen} />
+  <Aside open={asideOpen} bind:asideWidth />
+  <Main offsetLeft={asideWidth} />
 </div>
